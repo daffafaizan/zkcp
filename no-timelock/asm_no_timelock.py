@@ -1,13 +1,10 @@
 import argparse
-import hashlib
 from bitcoin.core import x, CScript
 from bitcoin.core.script import (
     OP_SHA256,
     OP_EQUAL,
     OP_IF,
     OP_ELSE,
-    OP_CHECKLOCKTIMEVERIFY,
-    OP_DROP,
     OP_ENDIF,
     OP_CHECKSIG
 )

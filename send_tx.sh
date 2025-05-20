@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# The raw transaction hex
+RAW_TX="01000000019b316ebb68217c7a3c611e4db298318e38d5daf8d764801c0199ff3b4615f03401000000c2483045022100ffb54d84e1a4cc42a8ffcd4e580293617a12f9304638dde57ef0f211ae12ddab02200a983c3a08807e679d5e9e8fdb507d6e1f9d8cee62a1ff3d98a9cd5ddd01a853010548454c4c4f514c70a8203733cd977ff8eb18b987357e22ced99f46097f31ecb239e878ae63760e83e4d58763210284b356f37bc71185098278a9bb6618f74254188ece5186639500830350478ec867022e01b1752103c6a950ded26bbd76b60a95a23b0ea93e7c1c4c2e7270009cb1d973558799aa6468acfeffffff01f0b9f505000000001976a914817898befadd4891d3ccf587c5dd18321ceb92da88ac00000000"
+
+# Send the transaction
+TXID=$(bitcoin-cli -regtest sendrawtransaction "$RAW_TX")
+echo "Transaction sent: $TXID"
+
+# Mine some blocks to confirm
+SELLER_ADDRESS=$(bitcoin-cli -regtest -rpcwallet=sellerwallet getnewaddress)
+bitcoin-cli -regtest generatetoaddress 6 "$SELLER_ADDRESS"
+echo "Transaction confirmed!"

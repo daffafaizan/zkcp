@@ -1,0 +1,9 @@
+OP_SHA256
+<Y> OP_EQUAL
+OP_IF
+  <Seller Pubkey>
+OP_ELSE
+  <block_height+100> OP_CHECKLOCKTIMEVERIFY OP_DROP
+  <Buyer Pubkey>
+OP_ENDIF
+OP_CHECKSIG

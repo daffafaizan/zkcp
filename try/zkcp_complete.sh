@@ -56,7 +56,7 @@ echo -e "\n========== ZKCP SETUP PHASE ==========\n"
 
 # Setup parameters
 REAL_K="HELLO"
-HASH_K=$(python3 hash.py $REAL_K)
+HASH_K=$(python3 ../common/hash.py $REAL_K)
 
 echo "[*] Seller computes parameters:"
 echo "    K: $REAL_K (encryption key)"
